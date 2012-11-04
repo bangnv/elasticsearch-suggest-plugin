@@ -1,0 +1,17 @@
+{
+    "contact": {
+        "properties": {
+            "ContactId":            { "type": "string", "index": "not_analyzed" },
+            "Description":          { "type": "string", "index": "not_analyzed" },
+
+            "ContactName" : {
+                "type" : "multi_field",
+                "fields" : {
+                    "ContactName":  { "type": "string", "index": "not_analyzed" },
+                    "suggest" :     { "type": "string", "analyzer": "suggest_analyzer" },
+                    "lowercase" :   { "type": "string", "analyzer": "lowercase_analyzer" }
+                }
+            }
+        }
+    }
+}
