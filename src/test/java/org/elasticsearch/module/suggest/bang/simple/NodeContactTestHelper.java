@@ -50,25 +50,13 @@ public class NodeContactTestHelper {
 //					.actionGet();
 			
 			node.client().admin().indices().create(new CreateIndexRequest(index)).actionGet();
-//			node.client().admin().indices().preparePutMapping(index)
-//					.setType("contact").setSource(mapping).execute()
-//					.actionGet();
+			node.client().admin().indices().preparePutMapping(index)
+					.setType("contact").setSource(mapping).execute()
+					.actionGet();
 		}
 	}
 
-	public static List<Map<String, Object>> createContacts(int count) {
-		List<Map<String, Object>> contacts = Lists.newArrayList();
-		for (int i = 0; i < count; i++) {
-			Map<String, Object> contact = Maps.newHashMap();
-			contact.put("ContactName",
-					RandomStringGenerator.randomAlphabetic(10));
-			contact.put("Contactid",
-					i + RandomStringGenerator.randomAlphanumeric(10));
-			contacts.add(contact);
-		}
-		return contacts;
-	}
-	
+
 	
 	
 	

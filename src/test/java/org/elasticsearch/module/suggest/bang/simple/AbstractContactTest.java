@@ -74,6 +74,7 @@ public abstract class AbstractContactTest {
 		List<String> suggestions = getSuggestions("_all", "ba", 10);
 		assertThat(suggestions.toString(), suggestions, hasSize(2));
 	}
+	
 
 	private List<String> getSuggestions(String field, String term, Integer size)
 			throws Exception {
@@ -82,5 +83,6 @@ public abstract class AbstractContactTest {
 
 	abstract public List<String> getSuggestions(String index, String field,
 			String term, Integer size) throws Exception;
+	
 
 }

@@ -9,6 +9,9 @@ import org.elasticsearch.action.admin.indices.refresh.RefreshRequest;
 import org.elasticsearch.action.bulk.BulkRequest;
 import org.elasticsearch.action.bulk.BulkResponse;
 import org.elasticsearch.action.index.IndexRequest;
+import org.elasticsearch.common.RandomStringGenerator;
+import org.elasticsearch.common.collect.Lists;
+import org.elasticsearch.common.collect.Maps;
 import org.elasticsearch.node.Node;
 
 public class ContactTestHelper {
@@ -35,5 +38,18 @@ public class ContactTestHelper {
 		node.client().admin().indices().refresh(new RefreshRequest(index)).get();
 		
 	}
+	public static List<Map<String, Object>> createContacts(int count) {
+		List<Map<String, Object>> contacts = Lists.newArrayList();
+		for (int i = 0; i < count; i++) {
+			Map<String, Object> contact = Maps.newHashMap();
+			contact.put("ContactName",
+					RandomStringGenerator.randomAlphabetic(10));
+			contact.put("Contactid",
+					i + RandomStringGenerator.randomAlphanumeric(10));
+			contacts.add(contact);
+		}
+		return contacts;
+	}
+	
 
 }
