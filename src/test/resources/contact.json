@@ -12,6 +12,9 @@
                     "lowercase" :   { "type": "string", "analyzer": "lowercase_analyzer" }
                 }
             }
+            
+            
+            
         }
     }
 }
